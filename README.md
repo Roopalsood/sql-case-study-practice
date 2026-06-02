@@ -1,26 +1,50 @@
-# sql-case-study-practice
+# SQL Interview Preparation (Oracle SQL)
 
-# SQL Interview Preparation (Oracle)
-
-This repository contains structured SQL interview practice questions grouped by difficulty level.
+This repository contains SQL interview practice questions for Data Analyst roles.
 
 ---
 
-## 📂 Structure
+## 📂 Files
 
-- basic_sql.sql → Fundamentals of SQL
+- schema.sql → Database tables
+- basic_sql.sql → Basic SQL questions
 - intermediate_sql.sql → Joins, grouping, subqueries
 - advanced_sql.sql → Complex interview problems
-- window_functions.sql → Advanced analytics SQL
+- window_functions.sql → Ranking, running totals, lag/lead
+- practice_questions.sql → Questions only for practice
 
 ---
 
-## 🧠 Topics Covered
+## 🧱 Schema Overview
 
-- Filtering & aggregation
-- Joins
+Tables used:
+
+- customers
+- employees
+- products
+- orders
+- sales
+- customer_orders_history
+
+---
+
+## 🎯 Topics Covered
+
+- SELECT, WHERE, ORDER BY
+- JOINs
+- GROUP BY, HAVING
 - Subqueries
 - CASE statements
-- Window functions
-- Real-world analytics problems
+- Window functions (RANK, LAG, LEAD)
 
+---
+
+## 🚀 Purpose
+
+To practice SQL interview questions and improve data analysis skills.
+
+---
+
+## ⭐ Goal
+
+Build strong SQL fundamentals for Data Analyst interviews.
