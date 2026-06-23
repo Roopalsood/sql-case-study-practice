@@ -1,1 +1,400 @@
+/* ============================================================
+conceptual_sql.sql
+Conceptual Interview Questions
+(Based only on topics covered in basic_sql.sql)
+============================================================ */
 
+/* ============================================================
+SECTION 1: SQL BASICS
+============================================================ */
+
+/* -----------------------------
+Q1. What is SQL?
+
+Answer:
+SQL (Structured Query Language) is used to interact with relational databases. It allows users to retrieve, filter, update, and analyze structured data.
+------------------------------*/
+
+/* -----------------------------
+Q2. What is Oracle SQL?
+
+Answer:
+Oracle SQL is Oracle Database's implementation of SQL with additional Oracle-specific features and functions. It supports analytical and enterprise-scale querying.
+------------------------------*/
+
+/* -----------------------------
+Q3. What is a table?
+
+Answer:
+A table stores related information in rows and columns. It acts as the basic storage structure inside a relational database.
+------------------------------*/
+
+/* -----------------------------
+Q4. What is a row and column?
+
+Answer:
+A row represents one complete record in a table, while a column represents one attribute of that record.
+------------------------------*/
+
+/* -----------------------------
+Q5. What does SELECT do?
+
+Answer:
+SELECT retrieves data from one or more tables. It can return complete datasets or filtered outputs.
+------------------------------*/
+
+/* -----------------------------
+Q6. What does SELECT * mean?
+
+Answer:
+SELECT * retrieves all columns from a table. It is useful for exploration but generally avoided in production queries.
+------------------------------*/
+
+/* -----------------------------
+Q7. Why should SELECT * be avoided?
+
+Answer:
+It retrieves unnecessary columns and increases data transfer. Selecting required columns improves readability and performance.
+------------------------------*/
+
+/* -----------------------------
+Q8. Difference between SQL keywords and functions
+
+Answer:
+Keywords define SQL operations such as SELECT and WHERE. Functions perform computations or transformations like COUNT and AVG.
+------------------------------*/
+
+/* -----------------------------
+Q9. What is data retrieval?
+
+Answer:
+Data retrieval means fetching stored information from a database. SQL queries are written to retrieve relevant results.
+------------------------------*/
+
+/* -----------------------------
+Q10. Difference between structured and unstructured data
+
+Answer:
+Structured data follows predefined rows and columns. Unstructured data includes formats like images, videos, and documents.
+------------------------------*/
+
+/* ============================================================
+SECTION 2: FILTERING (WHERE)
+============================================================ */
+
+/* -----------------------------
+Q11. What does WHERE do?
+
+Answer:
+WHERE filters rows before processing and returns only matching records. It reduces unnecessary data in query results.
+------------------------------*/
+
+/* -----------------------------
+Q12. Difference between WHERE and HAVING
+
+Answer:
+WHERE filters rows before aggregation occurs. HAVING filters grouped or aggregated results after GROUP BY.
+------------------------------*/
+
+/* -----------------------------
+Q13. Difference between = and IN
+
+Answer:
+= compares a value against one value only. IN allows comparison against multiple possible values.
+------------------------------*/
+
+/* -----------------------------
+Q14. BETWEEN vs >= and <=
+
+Answer:
+BETWEEN checks values inside an inclusive range. It behaves similarly to using >= and <= together.
+------------------------------*/
+
+/* -----------------------------
+Q15. What is LIKE?
+
+Answer:
+LIKE searches for text patterns inside string values. It is commonly used with wildcard characters.
+------------------------------*/
+
+/* -----------------------------
+Q16. What are wildcard operators?
+
+Answer:
+Wildcards are special symbols used with LIKE for pattern matching. '%' represents multiple characters and '_' represents a single character.
+------------------------------*/
+
+/* -----------------------------
+Q17. Is LIKE case sensitive?
+
+Answer:
+Case sensitivity depends on database configuration. Oracle comparisons are generally case-sensitive unless handled explicitly.
+------------------------------*/
+
+/* -----------------------------
+Q18. Multiple conditions in WHERE
+
+Answer:
+Multiple conditions allow filtering using AND, OR, and parentheses. They help create more precise query logic.
+------------------------------*/
+
+/* -----------------------------
+Q19. Difference between AND and OR
+
+Answer:
+AND requires all conditions to be true. OR returns rows if at least one condition matches.
+------------------------------*/
+
+/* -----------------------------
+Q20. How does SQL evaluate conditions?
+
+Answer:
+SQL evaluates conditions based on operator precedence. Parentheses should be used to avoid unexpected results.
+------------------------------*/
+
+/* ============================================================
+SECTION 3: NULL HANDLING
+============================================================ */
+
+/* -----------------------------
+Q21. What is NULL?
+
+Answer:
+NULL represents missing or unknown data. It is different from zero, empty string, or default values.
+------------------------------*/
+
+/* -----------------------------
+Q22. NULL vs empty string
+
+Answer:
+NULL means no value exists, while an empty string represents blank text. Oracle may treat empty strings as NULL.
+------------------------------*/
+
+/* -----------------------------
+Q23. Why does = NULL not work?
+
+Answer:
+NULL does not behave like a regular value in comparisons. Use IS NULL or IS NOT NULL instead.
+------------------------------*/
+
+/* -----------------------------
+Q24. IS NULL vs IS NOT NULL
+
+Answer:
+IS NULL finds missing values and IS NOT NULL returns records with available values.
+------------------------------*/
+
+/* -----------------------------
+Q25. How do aggregate functions treat NULL?
+
+Answer:
+Most aggregate functions ignore NULL values during calculations. COUNT(column) excludes NULL records.
+------------------------------*/
+
+/* -----------------------------
+Q26. What is NVL?
+
+Answer:
+NVL replaces NULL values with an alternative value. It is commonly used in Oracle SQL.
+------------------------------*/
+
+/* -----------------------------
+Q27. Difference between NVL and COALESCE
+
+Answer:
+NVL accepts two values only. COALESCE checks multiple values and returns the first non-NULL value.
+------------------------------*/
+
+/* -----------------------------
+Q28. Common NULL mistakes
+
+Answer:
+Common mistakes include using = NULL and forgetting aggregates ignore NULL values.
+------------------------------*/
+
+/* ============================================================
+SECTION 4: AGGREGATE FUNCTIONS
+============================================================ */
+
+/* -----------------------------
+Q29. What are aggregate functions?
+
+Answer:
+Aggregate functions calculate results across multiple rows. Examples include COUNT, SUM, AVG, MIN, and MAX.
+------------------------------*/
+
+/* -----------------------------
+Q30. What does COUNT(*) do?
+
+Answer:
+COUNT(*) counts all rows in a result set including rows containing NULL values.
+------------------------------*/
+
+/* -----------------------------
+Q31. COUNT(*) vs COUNT(column)
+
+Answer:
+COUNT(*) counts every row, while COUNT(column) counts only non-NULL values.
+------------------------------*/
+
+/* -----------------------------
+Q32. What does SUM do?
+
+Answer:
+SUM adds numeric values across rows and returns the total value.
+------------------------------*/
+
+/* -----------------------------
+Q33. What does AVG do?
+
+Answer:
+AVG calculates the average of numeric values. NULL values are ignored in calculation.
+------------------------------*/
+
+/* -----------------------------
+Q34. What does MIN do?
+
+Answer:
+MIN returns the smallest value from a column. It works for numeric and text values.
+------------------------------*/
+
+/* -----------------------------
+Q35. What does MAX do?
+
+Answer:
+MAX returns the largest value from a column. It is commonly used in reporting queries.
+------------------------------*/
+
+/* -----------------------------
+Q36. Why do aggregates ignore NULL?
+
+Answer:
+Ignoring NULL prevents unknown values from affecting calculations and keeps results meaningful.
+------------------------------*/
+
+/* -----------------------------
+Q37. Aggregate vs scalar functions
+
+Answer:
+Aggregate functions operate across rows, while scalar functions return one value per row.
+------------------------------*/
+
+/* -----------------------------
+Q38. Common aggregation mistakes
+
+Answer:
+Frequent mistakes include missing GROUP BY columns and misunderstanding COUNT(column).
+------------------------------*/
+
+/* ============================================================
+SECTION 5: GROUPING & SORTING
+============================================================ */
+
+/* -----------------------------
+Q39. What is GROUP BY?
+
+Answer:
+GROUP BY combines rows with the same values into summary groups for aggregation.
+------------------------------*/
+
+/* -----------------------------
+Q40. Why is GROUP BY needed?
+
+Answer:
+GROUP BY allows aggregate calculations at category or group level instead of entire tables.
+------------------------------*/
+
+/* ============================================================
+SECTION 5: GROUPING & SORTING (CONTINUED)
+============================================================ */
+
+/* -----------------------------
+Q41. Difference between GROUP BY and DISTINCT
+
+Answer:
+DISTINCT removes duplicate rows from the final result. GROUP BY creates groups and is mainly used with aggregate calculations.
+------------------------------*/
+
+/* -----------------------------
+Q42. Can GROUP BY work without aggregate functions?
+
+Answer:
+Yes. GROUP BY can be used without aggregates to return unique grouped combinations, although DISTINCT is often simpler.
+------------------------------*/
+
+/* -----------------------------
+Q43. What happens if a non-grouped column is selected?
+
+Answer:
+Every selected column must either be aggregated or included in GROUP BY. Otherwise SQL returns an error.
+------------------------------*/
+
+/* -----------------------------
+Q44. What does HAVING do?
+
+Answer:
+HAVING filters grouped results after aggregation is completed. It is commonly used with COUNT, SUM, and AVG conditions.
+------------------------------*/
+
+/* -----------------------------
+Q45. Difference between GROUP BY and ORDER BY
+
+Answer:
+GROUP BY combines rows into groups, while ORDER BY changes only the display order of results.
+------------------------------*/
+
+/* -----------------------------
+Q46. What does ORDER BY do?
+
+Answer:
+ORDER BY sorts query results in ascending or descending order. It is usually the last logical step of execution.
+------------------------------*/
+
+/* -----------------------------
+Q47. Difference between ASC and DESC
+
+Answer:
+ASC sorts values in ascending order and is the default behavior. DESC sorts values in descending order.
+------------------------------*/
+
+/* -----------------------------
+Q48. How does sorting work with multiple columns?
+
+Answer:
+SQL sorts using the first column and then applies secondary sorting for rows with matching values.
+------------------------------*/
+
+/* -----------------------------
+Q49. What is the logical execution order of SQL?
+
+Answer:
+SQL logically executes as:
+FROM → WHERE → GROUP BY → HAVING → SELECT → ORDER BY.
+Understanding this helps explain alias and aggregation behavior.
+------------------------------*/
+
+/* -----------------------------
+Q50. Why do aliases usually not work in WHERE?
+
+Answer:
+WHERE executes before SELECT, so aliases are not created yet. Aliases are generally available in ORDER BY.
+------------------------------*/
+
+/* ============================================================
+SECTION 6: BASIC SQL INTERVIEW WRAP-UP
+(Bonus Revision Notes)
+============================================================ */
+
+/* -----------------------------
+Most Common Beginner SQL Mistakes
+
+Answer:
+Using SELECT *, comparing with = NULL, forgetting GROUP BY columns, and confusing WHERE with HAVING are common interview mistakes.
+------------------------------*/
+
+/* -----------------------------
+Most Important Concepts to Revise Before Interviews
+
+Answer:
+SELECT, filtering, aggregates, NULL handling, GROUP BY, HAVING, ORDER BY, and SQL execution order are the highest priority.
+------------------------------*/
