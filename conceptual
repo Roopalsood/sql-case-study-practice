@@ -398,3 +398,279 @@ Most Important Concepts to Revise Before Interviews
 Answer:
 SELECT, filtering, aggregates, NULL handling, GROUP BY, HAVING, ORDER BY, and SQL execution order are the highest priority.
 ------------------------------*/
+
+
+
+
+/* ============================================================
+conceptual_sql.sql
+SECTION: INTERMEDIATE SQL CONCEPTS
+(Based only on intermediate_sql.sql topics)
+============================================================ */
+
+/* ============================================================
+SECTION 1: JOINS (Q1–Q15)
+============================================================ */
+
+/* Q1. What is a JOIN?
+Answer:
+A JOIN combines rows from multiple tables using a related column. It helps retrieve connected business information stored across tables.
+*/
+
+/* Q2. Why are JOINs needed?
+Answer:
+Databases are normalized into multiple tables. JOINs combine those tables to answer business questions.
+*/
+
+/* Q3. What is INNER JOIN?
+Answer:
+INNER JOIN returns only matching rows from both tables. Non-matching records are excluded.
+*/
+
+/* Q4. What is LEFT JOIN?
+Answer:
+LEFT JOIN returns all rows from the left table and matching rows from the right table. Missing matches appear as NULL.
+*/
+
+/* Q5. INNER JOIN vs LEFT JOIN
+Answer:
+INNER JOIN keeps only matched data, while LEFT JOIN preserves all rows from the first table.
+*/
+
+/* Q6. What happens when join columns contain NULL?
+Answer:
+NULL values usually do not match equality joins and may reduce returned records.
+*/
+
+/* Q7. What is join cardinality?
+Answer:
+Cardinality describes relationship types such as one-to-one, one-to-many, and many-to-many.
+*/
+
+/* Q8. What is a one-to-many relationship?
+Answer:
+One record in a table maps to multiple records in another table, like customers and orders.
+*/
+
+/* Q9. What is duplicate expansion in joins?
+Answer:
+One matching row may connect to many rows and increase result size unexpectedly.
+*/
+
+/* Q10. What causes duplicate rows after joins?
+Answer:
+Duplicates often occur because of non-unique join keys or one-to-many relationships.
+*/
+
+/* Q11. What is an anti join?
+Answer:
+Anti joins return rows that do not have matching records in another table.
+*/
+
+/* Q12. LEFT JOIN vs NOT EXISTS
+Answer:
+Both can find missing records. NOT EXISTS is often preferred for anti-match logic.
+*/
+
+/* Q13. What is EXISTS?
+Answer:
+EXISTS checks whether matching rows exist and stops after finding one match.
+*/
+
+/* Q14. EXISTS vs IN
+Answer:
+IN compares values, while EXISTS checks row existence and is often better for correlated logic.
+*/
+
+/* Q15. Why avoid joining unnecessary tables?
+Answer:
+Extra joins increase complexity and may slow query execution.
+*/
+
+/* ============================================================
+SECTION 2: GROUP BY & HAVING (Q16–Q25)
+============================================================ */
+
+/* Q16. What does GROUP BY do?
+Answer:
+GROUP BY creates groups of rows for aggregate calculations.
+*/
+
+/* Q17. Why use GROUP BY in reporting?
+Answer:
+Business reports usually summarize metrics at department, month, or customer level.
+*/
+
+/* Q18. What is aggregation?
+Answer:
+Aggregation combines multiple rows into summary values like total, average, or count.
+*/
+
+/* Q19. Why does every selected column need GROUP BY?
+Answer:
+SQL must know how to summarize each selected value.
+*/
+
+/* Q20. GROUP BY vs DISTINCT
+Answer:
+DISTINCT removes duplicates while GROUP BY supports aggregation.
+*/
+
+/* Q21. What does HAVING do?
+Answer:
+HAVING filters grouped results after aggregation.
+*/
+
+/* Q22. WHERE vs HAVING
+Answer:
+WHERE filters before grouping and HAVING filters after grouping.
+*/
+
+/* Q23. Can HAVING be used without GROUP BY?
+Answer:
+Yes, but it applies to the aggregated result as a whole.
+*/
+
+/* Q24. Why is COUNT commonly used with GROUP BY?
+Answer:
+COUNT helps measure frequency and activity metrics.
+*/
+
+/* Q25. What are common aggregation mistakes?
+Answer:
+Missing GROUP BY columns and incorrect aggregation logic are frequent issues.
+*/
+
+/* ============================================================
+SECTION 3: SUBQUERIES (Q26–Q40)
+============================================================ */
+
+/* Q26. What is a subquery?
+Answer:
+A subquery is a query inside another SQL query used to calculate intermediate results.
+*/
+
+/* Q27. What is a scalar subquery?
+Answer:
+A scalar subquery returns exactly one value and can be used in expressions.
+*/
+
+/* Q28. What is a correlated subquery?
+Answer:
+A correlated subquery executes once for each outer query row.
+*/
+
+/* Q29. Correlated vs normal subquery
+Answer:
+Normal subqueries run independently while correlated ones depend on outer rows.
+*/
+
+/* Q30. What is nesting in SQL?
+Answer:
+Nesting means placing queries inside other queries to build complex logic.
+*/
+
+/* Q31. Why use subqueries?
+Answer:
+Subqueries break difficult business logic into smaller steps.
+*/
+
+/* Q32. Subquery vs JOIN
+Answer:
+JOIN combines tables while subqueries often compute intermediate values.
+*/
+
+/* Q33. What is an inline view?
+Answer:
+An inline view is a subquery inside FROM treated like a temporary table.
+*/
+
+/* Q34. What is a CTE?
+Answer:
+CTE creates a named temporary result set for better readability.
+*/
+
+/* Q35. Why are CTEs useful?
+Answer:
+CTEs simplify complex SQL and reduce repeated logic.
+*/
+
+/* Q36. What does CROSS JOIN do?
+Answer:
+CROSS JOIN creates all possible row combinations.
+*/
+
+/* Q37. What is top-N logic?
+Answer:
+Top-N logic finds highest or lowest ranked records.
+*/
+
+/* Q38. Why use MAX inside subqueries?
+Answer:
+MAX helps identify latest, highest, or most expensive records.
+*/
+
+/* Q39. Why are nested aggregates difficult?
+Answer:
+Aggregates often require intermediate grouping before final calculations.
+*/
+
+/* Q40. Common subquery interview mistake
+Answer:
+Using correlated subqueries unnecessarily can reduce performance.
+*/
+
+/* ============================================================
+SECTION 4: CASE STATEMENTS (Q41–Q50)
+============================================================ */
+
+/* Q41. What is CASE?
+Answer:
+CASE adds conditional logic inside SQL and returns different outputs.
+*/
+
+/* Q42. Why use CASE in analytics?
+Answer:
+CASE helps classify business data into meaningful categories.
+*/
+
+/* Q43. Simple CASE vs searched CASE
+Answer:
+Simple CASE compares one value while searched CASE evaluates conditions.
+*/
+
+/* Q44. What is segmentation?
+Answer:
+Segmentation divides records into business categories.
+*/
+
+/* Q45. What are customer tiers?
+Answer:
+Customer tiers classify users by spend, activity, or loyalty.
+*/
+
+/* Q46. What is bucketing?
+Answer:
+Bucketing groups values into ranges for reporting.
+*/
+
+/* Q47. Why is CASE useful in dashboards?
+Answer:
+CASE transforms raw data into business-friendly labels.
+*/
+
+/* Q48. CASE vs DECODE in Oracle
+Answer:
+CASE is standard SQL while DECODE is Oracle-specific.
+*/
+
+/* Q49. Can CASE contain aggregates?
+Answer:
+Yes, CASE is frequently combined with aggregate functions.
+*/
+
+/* Q50. Common CASE mistakes
+Answer:
+Overlapping conditions and incorrect ordering can produce unexpected results.
+*/
+
